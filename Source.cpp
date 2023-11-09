@@ -27,9 +27,9 @@ struct spisok_soed* creation_element(int nomber) {
 
 	struct spisok_soed* p = NULL;
 
-	if ((p = (spisok_soed*)malloc(sizeof(struct spisok_soed))) == NULL)  // выделяем память под новый элемент списка
+	if ((p = (spisok_soed*)malloc(sizeof(struct spisok_soed))) == NULL)  // РІС‹РґРµР»СЏРµРј РїР°РјСЏС‚СЊ РїРѕРґ РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР°
 	{
-		printf("Ошибка при распределении памяти\n");
+		printf("РћС€РёР±РєР° РїСЂРё СЂР°СЃРїСЂРµРґРµР»РµРЅРёРё РїР°РјСЏС‚Рё\n");
 		exit(1);
 	}
 
@@ -46,9 +46,9 @@ struct spisok_head* creation_element_head(int nomber, int** M, int size) {
 	struct  spisok_head* p = NULL;
 	struct spisok_soed* q, * save = NULL;
 
-	if ((p = (spisok_head*)malloc(sizeof(struct  spisok_head))) == NULL)  // выделяем память под новый элемент списка
+	if ((p = (spisok_head*)malloc(sizeof(struct  spisok_head))) == NULL)  // РІС‹РґРµР»СЏРµРј РїР°РјСЏС‚СЊ РїРѕРґ РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР°
 	{
-		printf("Ошибка при распределении памяти\n");
+		printf("РћС€РёР±РєР° РїСЂРё СЂР°СЃРїСЂРµРґРµР»РµРЅРёРё РїР°РјСЏС‚Рё\n");
 		exit(1);
 	}
 
@@ -108,8 +108,8 @@ void review(int size, struct spisok_head** head_spisok) {
 		save_head = save_head->next;
 	}
 	cout << "\n";
-}
 
+}
 void output_mas(int** M, int size) {
 	for (int i = 0; i < size; i++) {
 		for (int j = 0; j < size; j++) {
@@ -139,7 +139,7 @@ void input_output(int** M, int size) {
 void rename(int size2) {
 
 	for (int i = 0; i < size2; i++) {
-		cout << "\nВведите название вершины номер " << i + 1 << ": ";
+		cout << "\nР’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РІРµСЂС€РёРЅС‹ РЅРѕРјРµСЂ " << i + 1 << ": ";
 		cin >> name[i];
 	}
 	name_nomber = FALSE;
@@ -155,7 +155,7 @@ int shet_po_name(int size) {
 
 int** identification(int** M, int* size, bool input) {
 	int** M3, vershina1, vershina2;
-	M3 = new int* [(*size) - 1]; // создаём двумерный массив 
+	M3 = new int* [(*size) - 1]; // СЃРѕР·РґР°С‘Рј РґРІСѓРјРµСЂРЅС‹Р№ РјР°СЃСЃРёРІ 
 
 	for (int i = 0; i < (*size) - 1; i++) {
 		M3[i] = new int[(*size) - 1];
@@ -164,27 +164,35 @@ int** identification(int** M, int* size, bool input) {
 	if (name_nomber) {
 
 		if (input) {
-			cout << "Введите вершины для отождествления\n 1 вершина : ";
+			cout << "Р’РІРµРґРёС‚Рµ РІРµСЂС€РёРЅС‹ РґР»СЏ РѕС‚РѕР¶РґРµСЃС‚РІР»РµРЅРёСЏ\n 1 РІРµСЂС€РёРЅР° : ";
 			cin >> vershina1;
-			cout << " 2 вершина : ";
+			cout << " 2 РІРµСЂС€РёРЅР° : ";
 			cin >> vershina2;
 		}
 		else {
-
+			cout << "Р’РІРµРґРёС‚Рµ РІРµСЂС€РёРЅС‹ РёРЅС†РёРґРµРЅС‚РЅС‹Рµ СЂРµР±СЂСѓ РєРѕС‚РѕСЂРѕРµ РІС‹ С…РѕС‚РёС‚Рµ СЃС‚СЏРЅСѓС‚СЊ\n 1 РІРµСЂС€РёРЅР° : ";
+			cin >> vershina1;
+			cout << " 2 РІРµСЂС€РёРЅР° : ";
+			cin >> vershina2;
 		}
 	}
 	else {
 
 		if (input) {
-			cout << "Введите название вершин для отождествления\n 1 вершина : ";
+			cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РІРµСЂС€РёРЅ РґР»СЏ РѕС‚РѕР¶РґРµСЃС‚РІР»РµРЅРёСЏ\n 1 РІРµСЂС€РёРЅР° : ";
 			cin >> perem;
 			vershina1 = shet_po_name(*size);
-			cout << " 2 вершина : ";
+			cout << " 2 РІРµСЂС€РёРЅР° : ";
 			cin >> perem;
 			vershina2 = shet_po_name(*size);
 		}
 		else {
-		
+			cout << "Р’РІРµРґРёС‚Рµ РІРµСЂС€РёРЅС‹ РёРЅС†РёРґРµРЅС‚РЅС‹Рµ СЂРµР±СЂСѓ РєРѕС‚РѕСЂРѕРµ РІС‹ С…РѕС‚РёС‚Рµ СЃС‚СЏРЅСѓС‚СЊ\n 1 РІРµСЂС€РёРЅР° : ";
+			cin >> perem;
+			vershina1 = shet_po_name(*size);
+			cout << " 2 РІРµСЂС€РёРЅР° : ";
+			cin >> perem;
+			vershina2 = shet_po_name(*size);
 		}
 
 	}
@@ -229,7 +237,7 @@ int** identification(int** M, int* size, bool input) {
 
 void proverka_vershin(int* vershina, int size) {
 	while ((*vershina) >= size || (*vershina) < 0) {
-		cout << "Такой вершины нет\n Попробуйте ещё раз: ";
+		cout << "РўР°РєРѕР№ РІРµСЂС€РёРЅС‹ РЅРµС‚\n РџРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰С‘ СЂР°Р·: ";
 		cin >> (*vershina);
 	}
 }
@@ -246,15 +254,20 @@ void identification_spisok(struct spisok_head** head_spisok, bool input, int* si
 	struct spisok_head* save1 = NULL, * save2 = NULL;
 	struct spisok_soed* save1_soed = NULL, * save2_soed = NULL, * save2_1_soed = NULL;
 	if (input) {
-		cout << "Введите вершины для отождествления\n 1 вершина: ";
+		cout << "Р’РІРµРґРёС‚Рµ РІРµСЂС€РёРЅС‹ РґР»СЏ РѕС‚РѕР¶РґРµСЃС‚РІР»РµРЅРёСЏ\n 1 РІРµСЂС€РёРЅР°: ";
 		cin >> vershina1;
 		proverka_vershin(&vershina1, *size);
-		cout << " 2 вершина: ";
+		cout << " 2 РІРµСЂС€РёРЅР°: ";
 		cin >> vershina2;
 		proverka_vershin(&vershina2, *size);
 	}
 	else {
-
+		cout << "Р’РІРµРґРёС‚Рµ РІРµСЂС€РёРЅС‹ РёРЅС†РёРґРµРЅС‚РЅС‹Рµ СЂРµР±СЂСѓ РєРѕС‚РѕСЂРѕРµ РІС‹ С…РѕС‚РёС‚Рµ СЃС‚СЏРЅСѓС‚СЊ\n 1 РІРµСЂС€РёРЅР°: ";
+		cin >> vershina1;
+		proverka_vershin(&vershina1, *size);
+		cout << " 2 РІРµСЂС€РёРЅР°: ";
+		cin >> vershina2;
+		proverka_vershin(&vershina2, *size);
 	}
 	save1 = poisk_vershini(*head_spisok, vershina1);
 	save2 = poisk_vershini(*head_spisok, vershina2);
@@ -301,6 +314,151 @@ void identification_spisok(struct spisok_head** head_spisok, bool input, int* si
 	save2->next = save2->next->next;
 	(*size)--;
 
+
+}
+
+int** rashiplenie(int** M, int* size) {
+	int** M3, vershina, colvo_connect = 0, counter = 0;
+	M3 = new int* [*size + 1]; // СЃРѕР·РґР°С‘Рј РґРІСѓРјРµСЂРЅС‹Р№ РјР°СЃСЃРёРІ 
+
+	for (int i = 0; i < *size + 1; i++) {
+		M3[i] = new int[*size + 1];
+	}
+
+	if (name_nomber) {
+		cout << "Р’РІРµРґРёС‚Рµ РІРµСЂС€РёРЅСѓ РґР»СЏ СЂР°СЃС€РёРїР»РµРЅРёСЏ : ";
+		cin >> vershina;
+	}
+	else {
+
+		cout << "Р’РІРµРґРёС‚Рµ РІРµСЂС€РёРЅСѓ РґР»СЏ СЂР°СЃС€РёРїР»РµРЅРёСЏ : ";
+		cin >> perem;
+		vershina = shet_po_name(*size);
+	
+	}
+
+
+	for (int i = 0; i < *size; i++) {
+		if (M[vershina][i] == 1) { colvo_connect++; }
+	}
+
+	for (int i = 0; i < *size;i++) {
+		for (int j = 0; j < *size; j++) {
+			if (j == vershina)
+			{
+				if (M[i][j] == 1) {
+					if (counter < (colvo_connect / 2)) {
+						M3[i][j] = 1;
+						M3[i][*size] = M3[*size][i] = 0;
+						counter++;
+					}
+					else {
+						M3[i][j] = 0;
+						M3[i][*size] = M3[*size][i] = 1;
+
+					}
+				}
+				else {
+					M3[i][j] = 0;
+					M3[i][*size] = M3[*size][i] = 0;
+				}
+
+			}
+			else {
+				M3[i][j] = M[i][j];
+			}
+
+		}
+	}
+	M3[vershina][*size] = M3[*size][vershina] = 1;
+	M3[*size][*size] = 0;
+
+	output_mas(M3, *size + 1);
+	(*size)++;
+	return M3;
+
+
+}
+
+void rashiplenie_spisok(struct spisok_head** head_spisok, int* size, int** M) {
+	int vershina, colvo_reber = 0;
+	struct spisok_head* save1 = NULL, * q = NULL;
+	struct spisok_soed* save1_soed = NULL, * save2_soed = NULL;
+
+
+	cout << "Р’РІРµРґРёС‚Рµ РІРµСЂС€РёРЅСѓ РґР»СЏ СЂР°СЃС€РёРїР»РµРЅРёСЏ : ";
+	cin >> vershina;
+	proverka_vershin(&vershina, *size);
+
+	save1 = poisk_vershini(*head_spisok, vershina);
+	save1_soed = save1->head;
+
+	while (save1_soed != NULL) {
+		save1_soed = save1_soed->next;
+		colvo_reber++;
+	}
+
+	save1_soed = save1->head;
+	for (int i = 0; i < ((colvo_reber / 2) - 1); i++) {
+		save1_soed = save1_soed->next;
+	}
+
+	save2_soed = save1_soed->next;
+	save1_soed->next = NULL;
+
+	q = creation_element_head(*size, M, 0);
+	q->head = save2_soed;
+
+	save1 = poisk_vershini(*head_spisok, (*size) - 1);
+	save1->next = q;
+
+	(*size)++;
+
+}
+
+void obedinen(int** M1, int** M2, int size1, int size2) {
+	int** M3, size;
+	size = max(size1, size2);
+	M3 = new int* [size];
+	for (int i = 0; i < size; i++) {
+		M3[i] = new int[size];
+	}
+
+	for (int i = 0; i < size; i++) {
+		for (int j = i; j < size;j++) {
+			if (i < min(size1, size2) && j < min(size1, size2)) {
+				M3[i][j] = M3[j][i] = (M1[i][j] | M2[i][j]);
+			}
+			else if (size1 < size2) {
+				M3[i][j] = M3[j][i] = M2[i][j];
+			}
+			else { M3[i][j] = M3[j][i] = M1[i][j]; }
+		}
+	}
+	output_mas(M3, size);
+
+}
+
+void peresechenie(int** M1, int** M2, int size1, int size2) {
+	int** M3, size;
+	size = min(size1, size2);
+	M3 = new int* [size];
+	for (int i = 0; i < size; i++) {
+		M3[i] = new int[size];
+	}
+
+	for (int i = 0; i < size; i++) {
+		for (int j = i; j < size;j++) {
+			if (i < min(size1, size2) && j < min(size1, size2)) {
+				M3[i][j] = M3[j][i] = (M1[i][j] & M2[i][j]);
+			}
+			else {
+				M3[i][j] = M3[j][i] = 0;
+			}
+
+		}
+	}
+	output_mas(M3, size);
 
 }
 
@@ -358,6 +516,69 @@ void circle_sum(int** M1, int** M2, int size1, int size2) {
 
 
 }
+int** dec(int** M1, int** M2, int* size1, int size2) {
+	int** M3, size = (*size1) * size2;
+
+	M3 = new int* [size]; // СЃРѕР·РґР°С‘Рј РґРІСѓРјРµСЂРЅС‹Р№ РјР°СЃСЃРёРІ 
+	for (int i = 0; i < size; i++) {
+		M3[i] = new int[size];
+	}
+	int* nomera = new int[size];
+
+
+	for (int i = 0; i < (*size1); i++) {
+		for (int j = 0; j < size2; j++) {
+			nomera[j + i * size2] = (i + 1) * 10 + j + 1;
+		}
+	}
+
+	cout << "\n";
+	for (int m = 0; m < size; m++) {
+		for (int n = 0; n < size; n++) {
+			M3[m][n] = 0;
+		}
+	}
+
+
+	for (int i = 0; i < (*size1); i++) {
+		for (int j = 0; j < (*size1); j++) {
+			if (M1[i][j] == 1) {
+				for (int m = 0; m < size; m++) {
+					for (int n = 0; n < size; n++) {
+						if ((m != n) && (i + 1 == nomera[m] / 10) && (j + 1 == nomera[n] / 10) && (nomera[n] % 10 == nomera[m] % 10)) {
+							M3[m][n] = 1;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	for (int i = 0; i < size2; i++) {
+		for (int j = 0; j < size2; j++) {
+			if (M2[i][j] == 1) {
+				for (int m = 0; m < size; m++) {
+					for (int n = 0; n < size; n++) {
+						if ((m != n) && (i + 1 == nomera[m] % 10) && (j + 1 == nomera[n] % 10) && (nomera[n] / 10 == nomera[m] / 10)) {
+							M3[m][n] = 1;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	for (int m = 0; m < size; m++) {
+		for (int n = 0; n < size; n++) {
+			cout << M3[m][n] << " ";
+		}
+		cout << "\n";
+	}
+	(*size1) = size;
+	return M3;
+}
+
+
 
 
 int main() {
@@ -366,11 +587,11 @@ int main() {
 	int** M1, ** M2, size1, size2, vibor1, vibor2;
 	struct spisok_head* spisok1, * spisok2;
 	bool uslovie = TRUE;
-	cout << " Матрицы смежности \n \n Введите количество вершин графа №1: ";
+	cout << " РњР°С‚СЂРёС†С‹ СЃРјРµР¶РЅРѕСЃС‚Рё \n \n Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РІРµСЂС€РёРЅ РіСЂР°С„Р° в„–1: ";
 	cin >> size1;
-	cout << " Введите количество вершин графа №2: ";
+	cout << " Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РІРµСЂС€РёРЅ РіСЂР°С„Р° в„–2: ";
 	cin >> size2;
-	M1 = new int* [size1]; // создаём двумерный массив 
+	M1 = new int* [size1]; // СЃРѕР·РґР°С‘Рј РґРІСѓРјРµСЂРЅС‹Р№ РјР°СЃСЃРёРІ 
 	M2 = new int* [size2];
 	name = new string[size2];
 	spisok1 = new struct spisok_head[size1];
@@ -388,13 +609,13 @@ int main() {
 	cout << "\nM2:\n";
 	input_output(M2, size2);
 	cout << "\n";
-	cout << "Выберите действие\n 1) Матрицы\n 2) Списки\n Выберите действие: ";
+	cout << "Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ\n 1) РњР°С‚СЂРёС†С‹\n 2) РЎРїРёСЃРєРё\n Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ: ";
 	cin >> vibor2;
 	switch (vibor2) {
 	case(1):
 
 		while (uslovie) {
-			cout << "\n 1) Отождествление вершин\n 2) Стягивание ребра\n 3) Расщипление вершины\n 4) Объединение\n 5) Пересечение\n 6) Кольцевая сумма\n 7) Декартово произведение графов\n 8) Поменять название графов\n 9) Законьчить\n Выберите действие: ";
+			cout << "\n 1) РћС‚РѕР¶РґРµСЃС‚РІР»РµРЅРёРµ РІРµСЂС€РёРЅ\n 2) РЎС‚СЏРіРёРІР°РЅРёРµ СЂРµР±СЂР°\n 3) Р Р°СЃС‰РёРїР»РµРЅРёРµ РІРµСЂС€РёРЅС‹\n 4) РћР±СЉРµРґРёРЅРµРЅРёРµ\n 5) РџРµСЂРµСЃРµС‡РµРЅРёРµ\n 6) РљРѕР»СЊС†РµРІР°СЏ СЃСѓРјРјР°\n 7) Р”РµРєР°СЂС‚РѕРІРѕ РїСЂРѕРёР·РІРµРґРµРЅРёРµ РіСЂР°С„РѕРІ\n 8) РџРѕРјРµРЅСЏС‚СЊ РЅР°Р·РІР°РЅРёРµ РіСЂР°С„РѕРІ\n 9) Р—Р°РєРѕРЅСЊС‡РёС‚СЊ\n Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ: ";
 			cin >> vibor1;
 			switch (vibor1) {
 			case(1):
@@ -402,20 +623,28 @@ int main() {
 				M2 = identification(M2, &size2, TRUE);
 				break;
 			case(2):
-				
+				cout << "\n";
+				M2 = identification(M2, &size2, FALSE);
+				break;
 			case(3):
+				cout << "\n";
+				M2 = rashiplenie(M2, &size2);
 				break;
 			case(4):
+				cout << "\n";
+				obedinen(M1, M2, size1, size2);
 				break;
 			case(5):
-				
+				cout << "\n";
+				peresechenie(M1, M2, size1, size2);
 				break;
 			case(6):
 				cout << "\n";
 				circle_sum(M1, M2, size1, size2);
 				break;
 			case(7):
-				
+				cout << "\n";
+				M1 = dec(M1, M2, &size1, size2);
 				break;
 			case(8):
 				rename(size2);
@@ -424,7 +653,7 @@ int main() {
 				uslovie = FALSE;
 				break;
 			default:
-				cout << "Ошибка";
+				cout << "РћС€РёР±РєР°";
 			}
 		}
 		break;
@@ -436,7 +665,7 @@ int main() {
 		review(size2, &head_spisok2);
 
 		while (uslovie) {
-			cout << "\n 1) Отождествление вершин\n 2) Стягивание ребра\n 3) Расщипление вершины\n 4) Завершить\n Выберите действие: ";
+			cout << "\n 1) РћС‚РѕР¶РґРµСЃС‚РІР»РµРЅРёРµ РІРµСЂС€РёРЅ\n 2) РЎС‚СЏРіРёРІР°РЅРёРµ СЂРµР±СЂР°\n 3) Р Р°СЃС‰РёРїР»РµРЅРёРµ РІРµСЂС€РёРЅС‹\n 4) Р—Р°РІРµСЂС€РёС‚СЊ\n Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ: ";
 			cin >> vibor1;
 			switch (vibor1) {
 			case(1):
@@ -444,17 +673,19 @@ int main() {
 				review(size1, &head_spisok1);
 				break;
 			case(2):
-				
+				identification_spisok(&head_spisok1, FALSE, &size1);
+				review(size1, &head_spisok1);
 				break;
 			case(3):
-				
+				rashiplenie_spisok(&head_spisok1, &size1, M1);
+				review(size1, &head_spisok1);
 				break;
 			case(4):
 				uslovie = FALSE;
 				break;
 
 			default:
-				cout << "Ошибка";
+				cout << "РћС€РёР±РєР°";
 			}
 		}
 		break;
@@ -462,7 +693,9 @@ int main() {
 
 		break;
 	default:
-		cout << "Ошибка";
+		cout << "РћС€РёР±РєР°";
+
+
 
 	}
 	system("pause");
